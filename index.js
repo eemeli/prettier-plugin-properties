@@ -11,7 +11,8 @@ const language = {
   codemirrorMimeType: linguist.codemirrorMimeType,
   aliases: ['properties'],
   extensions: linguist.extensions,
-  linguistLanguageId: linguist.languageId
+  linguistLanguageId: linguist.languageId,
+  vscodeLanguageIds: ['properties']
 }
 
 const parser = {
