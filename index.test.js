@@ -12,6 +12,8 @@ const cases = [
   ['foo=bar', 'foo = bar\n'],
   ['foo=foo\r\nbar=bar\r\n', 'foo = foo\nbar = bar\n'],
   ['foo\\ bar baz', 'foo\\ bar = baz\n'],
+  ['😀=💚', '😀 = 💚\n'],
+  ['😀=💚', '\\ud83d\\ude00 = \\ud83d\\udc9a\n', { escapeNonLatin1: true }],
   ['foo=bar', 'foo: bar\n', { keySeparator: ': ' }],
   ['foo=bar', 'foo = \\\n  bar\n', { printWidth: 6 }],
   ['foo=bar', 'foo = \\\n\tbar\n', { printWidth: 6, useTabs: true }],

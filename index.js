@@ -34,9 +34,12 @@ const printer = {
   print(path, options, print) {
     const node = path.getValue()
     if (Array.isArray(node)) return concat(path.map(print))
-    const { keySeparator, printWidth, tabWidth, useTabs } = options
-    const indent = useTabs ? '\t' : ' '.repeat(tabWidth)
-    const opt = { indent, keySep: keySeparator, lineWidth: printWidth }
+    const opt = {
+      indent: options.useTabs ? '\t' : ' '.repeat(options.tabWidth),
+      keySep: options.keySeparator,
+      latin1: options.escapeNonLatin1,
+      lineWidth: options.printWidth
+    }
     return concat([stringify([node], opt), hardline])
   },
   hasPrettierIgnore(path) {
@@ -57,6 +60,13 @@ const printer = {
 }
 
 const options = {
+  escapeNonLatin1: {
+    category: 'Format',
+    type: 'boolean',
+    description:
+      'Escape with \\u all non-Latin-1 characters, to allow safely encoding as ISO-8859-1',
+    default: false
+  },
   keySeparator: {
     category: 'Format',
     type: 'choice',
