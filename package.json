@@ -1,0 +1,24 @@
+{
+  "name": "prettier-plugin-properties",
+  "version": "0.0.1",
+  "description": "Prettier plugin for .properties files",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eemeli/prettier-plugin-properties.git"
+  },
+  "keywords": [
+    "prettier",
+    "properties",
+    "plugin"
+  ],
+  "author": "Eemeli Aro <eemeli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eemeli/prettier-plugin-properties/issues"
+  },
+  "homepage": "https://github.com/eemeli/prettier-plugin-properties#readme"
+}
