@@ -1,19 +1,7 @@
 const { parseLines, stringify } = require('dot-properties')
-const linguist = require('linguist-languages')['Java Properties']
 const { concat, hardline } = require('prettier').doc.builders
 
-const language = {
-  name: linguist.name,
-  parsers: ['dot-properties'],
-  tmScope: linguist.tmScope,
-  aceMode: linguist.aceMode,
-  codemirrorMode: linguist.codemirrorMode,
-  codemirrorMimeType: linguist.codemirrorMimeType,
-  aliases: ['properties'],
-  extensions: linguist.extensions,
-  linguistLanguageId: linguist.languageId,
-  vscodeLanguageIds: ['properties']
-}
+const { languages } = require('./languages')
 
 const parser = {
   parse: text => parseLines(text, true),
@@ -86,7 +74,7 @@ const options = {
 }
 
 module.exports = {
-  languages: [language],
+  languages,
   parsers: { 'dot-properties': parser },
   printers: { 'dot-properties': printer },
   options
