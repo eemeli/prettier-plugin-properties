@@ -23,8 +23,7 @@
     "language.js"
   ],
   "scripts": {
-    "languages": "node scripts/languages",
-    "prepare": "npm run languages",
+    "prepare": "node scripts/languages",
     "test": "jest --coverage"
   },
   "prettier": {
