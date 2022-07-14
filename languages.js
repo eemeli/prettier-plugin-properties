@@ -1,10 +1,7 @@
 exports.languages = [
   {
     "name": "Java Properties",
-    "since": "0.1.0",
-    "parsers": [
-      "dot-properties"
-    ],
+    "type": "data",
     "extensions": [
       ".properties"
     ],
@@ -12,6 +9,11 @@ exports.languages = [
     "aceMode": "properties",
     "codemirrorMode": "properties",
     "codemirrorMimeType": "text/x-properties",
+    "languageId": 519377561,
+    "since": "0.1.0",
+    "parsers": [
+      "dot-properties"
+    ],
     "vscodeLanguageIds": [
       "properties"
     ]
