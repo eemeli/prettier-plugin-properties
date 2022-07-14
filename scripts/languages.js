@@ -14,24 +14,6 @@ const getSupportLanguages = (name) => {
       name,
       since: '0.1.0',
       parsers: ['dot-properties'],
-      ...[
-        'group',
-        'aliases',
-        'extensions',
-        'filenames',
-        'interpreters',
-        'tmScope',
-        'aceMode',
-        'codemirrorMode',
-        'codemirrorMimeType',
-        'linguistLanguageId',
-      ].reduce(
-        (acc, prop) =>
-          Object.assign(acc, {
-            [prop]: language[prop],
-          }),
-        {}
-      ),
       vscodeLanguageIds: [language.aceMode],
     },
   ]
