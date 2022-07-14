@@ -38,7 +38,6 @@
   "devDependencies": {
     "jest": "^27.5.1",
     "linguist-languages": "^7.9.0",
-    "lodash": "^4.17.21",
     "prettier": "^2.0.4"
   },
   "peerDependencies": {
