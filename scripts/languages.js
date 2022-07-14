@@ -1,5 +1,4 @@
 const fs = require('fs')
-const _ = require('lodash')
 
 const LinguistLanguages = require('linguist-languages')
 
@@ -26,13 +25,12 @@ const getSupportLanguages = (languages, parser, aceModes) =>
       name,
       since: '0.1.0',
       parsers: [parser],
-      ..._.pick(
-        language,
-        'group',
-        'aliases',
-        'extensions',
-        'filenames',
-        'interpreters'
+      ...['group', 'aliases', 'extensions', 'filenames', 'interpreters'].reduce(
+        (acc, prop) =>
+          Object.assign(acc, {
+            [prop]: language[prop]
+          }),
+        {}
       ),
       tmScope,
       aceMode,
