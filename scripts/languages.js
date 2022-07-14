@@ -4,47 +4,43 @@ const LinguistLanguages = require('linguist-languages')
 
 /**
  *
- * @param {LinguistLanguages.LinguistLanguages} languages
- * @param {'dot-properties'} parser
- * @param {string[]} aceModes
+ * @param {string} name
  * @returns
  */
-const getSupportLanguages = (languages, parser, aceModes) =>
-  Object.entries(languages).reduce((acc, [name, language]) => {
-    const {
-      aceMode,
-      tmScope,
-      codemirrorMode,
-      codemirrorMimeType,
-      languageId: linguistLanguageId
-    } = /** @type {LinguistLanguages.Language} */ (language)
-    if (!aceModes.includes(aceMode)) {
-      return acc
-    }
-    acc.push({
+const getSupportLanguages = (name) => {
+  const language = LinguistLanguages[name]
+  return [
+    {
       name,
       since: '0.1.0',
-      parsers: [parser],
-      ...['group', 'aliases', 'extensions', 'filenames', 'interpreters'].reduce(
+      parsers: ['dot-properties'],
+      ...[
+        'group',
+        'aliases',
+        'extensions',
+        'filenames',
+        'interpreters',
+        'tmScope',
+        'aceMode',
+        'codemirrorMode',
+        'codemirrorMimeType',
+        'linguistLanguageId',
+      ].reduce(
         (acc, prop) =>
           Object.assign(acc, {
-            [prop]: language[prop]
+            [prop]: language[prop],
           }),
         {}
       ),
-      tmScope,
-      aceMode,
-      codemirrorMode,
-      codemirrorMimeType,
-      linguistLanguageId,
-      vscodeLanguageIds: [aceMode]
-    })
-    return acc
-  }, [])
+      vscodeLanguageIds: [language.aceMode],
+    },
+  ]
+}
+
 fs.writeFileSync(
   'languages.js',
   `exports.languages = ${JSON.stringify(
-    getSupportLanguages(LinguistLanguages, 'dot-properties', ['properties']),
+    getSupportLanguages('Java Properties'),
     null,
     2
   )}
