@@ -11,6 +11,7 @@ const getSupportLanguages = (name) => {
   const language = LinguistLanguages[name]
   return [
     {
+      ...language,
       name,
       since: '0.1.0',
       parsers: ['dot-properties'],
