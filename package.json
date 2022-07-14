@@ -19,7 +19,8 @@
   },
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "language.js"
   ],
   "scripts": {
     "languages": "node scripts/languages",
