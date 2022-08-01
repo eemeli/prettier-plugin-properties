@@ -20,7 +20,8 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "language.js"
+    "languages.js",
+    "ThirdPartyNoticeText.txt"
   ],
   "scripts": {
     "prepare": "node scripts/languages",
