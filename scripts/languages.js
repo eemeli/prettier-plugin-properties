@@ -7,7 +7,7 @@ const LinguistLanguages = require('linguist-languages')
  * @param {string} name
  * @returns
  */
-const getSupportLanguages = (name) => {
+const getSupportLanguages = name => {
   const language = LinguistLanguages[name]
   return [
     {
@@ -15,8 +15,8 @@ const getSupportLanguages = (name) => {
       name,
       since: '0.1.0',
       parsers: ['dot-properties'],
-      vscodeLanguageIds: [language.aceMode],
-    },
+      vscodeLanguageIds: [language.aceMode]
+    }
   ]
 }
 
