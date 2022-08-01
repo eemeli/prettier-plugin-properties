@@ -18,11 +18,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with: { submodules: true }
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm test
+
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - run: npm ci
       - run: npx prettier --check .
