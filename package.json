@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "prepare": "node scripts/languages",
+    "prettier": "prettier --write .",
     "test": "jest --coverage"
   },
   "prettier": {
