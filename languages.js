@@ -2,6 +2,7 @@ exports.languages = [
   {
     "name": "Java Properties",
     "type": "data",
+    "color": "#2A6277",
     "extensions": [
       ".properties"
     ],
