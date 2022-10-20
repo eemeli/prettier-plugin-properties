@@ -28,6 +28,21 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        prettier-version: [2.3.0, latest, next]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with: { node-version: 18 }
+      - run: npm ci
+      - run: npm install prettier@${{ matrix.prettier-version }}
+      - run: NODE_OPTIONS=--experimental-vm-modules npm test
+
+  style:
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 16
