@@ -1,6 +1,6 @@
 # Prettier for .properties Files
 
-Adds support to Prettier for [`.properties`](https://en.wikipedia.org/wiki/.properties) files. To use, just install it:
+Adds support to Prettier (v2.3 and later) for [`.properties`](https://en.wikipedia.org/wiki/.properties) files. To use, just install it:
 
 ```
 npm install --save-dev prettier-plugin-properties

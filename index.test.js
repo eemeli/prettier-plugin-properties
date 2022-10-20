@@ -28,5 +28,5 @@ const cases = [
 for (const [src, exp, opt] of cases) {
   let name = src.replace(/\n/g, '\\n').replace(/\r/g, '\\r')
   if (opt) name += ` { ${Object.keys(opt)} }`
-  test(name, () => expect(format(src, opt)).toBe(exp))
+  test(name, async () => expect(await format(src, opt)).toBe(exp))
 }

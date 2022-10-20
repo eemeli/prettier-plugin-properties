@@ -5,21 +5,23 @@ on:
     branches: [master]
   push:
     branches: [master]
+  schedule:
+    - cron: '0 12 * * 1' # At noon on Mondays
   workflow_dispatch:
 
 jobs:
-  test:
+  env:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [14.x, 16.x]
+        node-version: [14, 16, latest]
 
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
@@ -28,11 +30,24 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        prettier-version: [2.3.0, latest, next]
+
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 16
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
+      - uses: actions/setup-node@v3
+        with: { node-version: 18 }
+      - run: npm ci
+      - run: npm install prettier@${{ matrix.prettier-version }}
+      - run: NODE_OPTIONS=--experimental-vm-modules npm test
+
+  style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with: { node-version: 18 }
       - run: npm ci
       - run: npx prettier --check .

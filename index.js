@@ -1,5 +1,5 @@
 const { parseLines, stringify } = require('dot-properties')
-const { concat, hardline } = require('prettier').doc.builders
+const { hardline } = require('prettier').doc.builders
 
 const { languages } = require('./languages')
 
@@ -22,14 +22,14 @@ const parser = {
 const printer = {
   print(path, options, print) {
     const node = path.getValue()
-    if (Array.isArray(node)) return concat(path.map(print))
+    if (Array.isArray(node)) return path.map(print)
     const opt = {
       indent: options.useTabs ? '\t' : ' '.repeat(options.tabWidth),
       keySep: options.keySeparator,
       latin1: options.escapeNonLatin1,
       lineWidth: options.printWidth
     }
-    return concat([stringify([node], opt), hardline])
+    return [stringify([node], opt), hardline]
   },
   hasPrettierIgnore(path) {
     const node = path.getValue()
