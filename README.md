@@ -33,9 +33,11 @@ Valid options:<br>
 | ------- | ------------------------- | ----------------------- |
 | `" = "` | `--key-separator "<sep>"` | `keySeparator: "<sep>"` |
 
-## Prettier Overrides
+### Using Overrides
 
-By default, the plugin will use your Prettier configuration. For example that the lines will automatically wrap based on the `printWidth` option. To disable this you can simply add the following Prettier override:
+To apply separate Prettier configuration for different file types,
+you may use [configuration overrides](https://prettier.io/docs/en/configuration.html#configuration-overrides).
+For example:
 
 ```json
 {
