@@ -32,3 +32,22 @@ Valid options:<br>
 | Default | CLI Override              | API Override            |
 | ------- | ------------------------- | ----------------------- |
 | `" = "` | `--key-separator "<sep>"` | `keySeparator: "<sep>"` |
+
+### Using Overrides
+
+To apply separate Prettier configuration for different file types,
+you may use [configuration overrides](https://prettier.io/docs/en/configuration.html#configuration-overrides).
+For example:
+
+```json
+{
+  "overrides": [
+    {
+      "files": "*.properties",
+      "options": {
+        "printWidth": 0
+      }
+    }
+  ]
+}
+```
