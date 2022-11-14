@@ -32,3 +32,20 @@ Valid options:<br>
 | Default | CLI Override              | API Override            |
 | ------- | ------------------------- | ----------------------- |
 | `" = "` | `--key-separator "<sep>"` | `keySeparator: "<sep>"` |
+
+## Prettier Overrides
+
+By default, the plugin will use your Prettier configuration. For example that the lines will automatically wrap based on the `printWidth` option. To disable this you can simply add the following Prettier override:
+
+```json
+{
+  "overrides": [
+    {
+      "files": "*.properties",
+      "options": {
+        "printWidth": 0
+      }
+    }
+  ]
+}
+```
