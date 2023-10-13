@@ -22,7 +22,18 @@ const parser = {
 const printer = {
   print(path, options, print) {
     const node = path.getValue()
-    if (Array.isArray(node)) return path.map(print)
+    if (Array.isArray(node)) {
+      const result = path.map(astPath => {
+        // This print method does not get called on the nodes that have a
+        // # prettier-ignore comment above them. So we need to return them
+        // with a hardline here.
+        if (this.hasPrettierIgnore(astPath)) {
+          return [print(astPath), hardline]
+        }
+        return print(astPath)
+      })
+      return result
+    }
     const opt = {
       indent: options.useTabs ? '\t' : ' '.repeat(options.tabWidth),
       keySep: options.keySeparator,
