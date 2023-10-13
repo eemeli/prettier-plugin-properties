@@ -29,7 +29,7 @@ const cases = [
     { keySeparator: '=', printWidth: 19 }
   ],
   [
-    'foo.bar=pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo = bar',
+    'foo.bar=pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo = bar ',
     'foo.bar=pizza \\\n  hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo=bar\n',
     { keySeparator: '=', printWidth: 19 }
   ],
