@@ -1,14 +1,13 @@
 # Prettier for .properties Files
 
-Adds support to Prettier (v2.3 and later) for [`.properties`](https://en.wikipedia.org/wiki/.properties) files. To use, just install it:
+Adds support to Prettier (v2.3 and later) for [`.properties`](https://en.wikipedia.org/wiki/.properties) files.
+To use, install it:
 
 ```
 npm install --save-dev prettier-plugin-properties
 ```
 
-Prettier should then automatically detect and use the `'dot-properties'` parser for `.properties` files.
-
-For more information, see [Prettier plugins documentation](https://prettier.io/docs/en/plugins.html).
+and then add it to your [Prettier plugin configuration](https://prettier.io/docs/plugins).
 
 ## Configuration
 
@@ -36,7 +35,7 @@ Valid options:<br>
 ### Using Overrides
 
 To apply separate Prettier configuration for different file types,
-you may use [configuration overrides](https://prettier.io/docs/en/configuration.html#configuration-overrides).
+you may use [configuration overrides](https://prettier.io/docs/configuration.html#configuration-overrides).
 For example:
 
 ```json
