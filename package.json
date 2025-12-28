@@ -35,7 +35,7 @@
     "trailingComma": "none"
   },
   "dependencies": {
-    "dot-properties": "^1.0.0"
+    "dot-properties": "^1.1.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
