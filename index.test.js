@@ -30,12 +30,12 @@ const cases = [
   ],
   [
     'foo.bar=pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo = bar ',
-    'foo.bar=pizza \\\n  hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo=bar\n',
+    'foo.bar=\\\n  pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo=bar\n',
     { keySeparator: '=', printWidth: 19 }
   ],
   [
     'foo.bar=pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=hot\n# comment\nfoo = bar\n bar = bar\n',
-    'foo.bar=pizza \\\n  hotdogs\n# prettier-ignore\nfoo.bar.sound=hot\n# comment\nfoo=bar\nbar=bar\n',
+    'foo.bar=\\\n  pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=hot\n# comment\nfoo=bar\nbar=bar\n',
     { keySeparator: '=', printWidth: 19 }
   ]
 ]
