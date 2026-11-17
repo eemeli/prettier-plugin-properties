@@ -38,7 +38,7 @@
     "dot-properties": "^1.1.2"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
+    "jest": "^30.5.2",
     "linguist-languages": "^9.5.0",
     "prettier": "^2.0.4"
   },
