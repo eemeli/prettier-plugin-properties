@@ -18,6 +18,7 @@
     "url": "git+https://github.com/eemeli/prettier-plugin-properties.git"
   },
   "main": "index.js",
+  "type": "module",
   "files": [
     "index.js",
     "languages.js",
@@ -26,7 +27,7 @@
   "scripts": {
     "prepare": "node scripts/languages",
     "prettier": "prettier --write .",
-    "test": "jest --coverage"
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage"
   },
   "prettier": {
     "arrowParens": "avoid",

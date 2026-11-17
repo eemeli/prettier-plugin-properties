@@ -1,7 +1,9 @@
-const { parseLines, stringify } = require('dot-properties')
-const { literalline } = require('prettier').doc.builders
+import { parseLines, stringify } from 'dot-properties'
+import * as prettier from 'prettier'
 
-const { languages } = require('./languages')
+const { literalline } = prettier.doc.builders
+
+export { languages } from './languages.js'
 
 const parser = {
   parse: text => parseLines(text, true),
@@ -59,7 +61,7 @@ const printer = {
   insertPragma: text => `# @format\n${text}`
 }
 
-const options = {
+export const options = {
   escapeNonLatin1: {
     category: 'Format',
     type: 'boolean',
@@ -84,9 +86,5 @@ const options = {
   }
 }
 
-module.exports = {
-  languages,
-  parsers: { 'dot-properties': parser },
-  printers: { 'dot-properties': printer },
-  options
-}
+export const parsers = { 'dot-properties': parser }
+export const printers = { 'dot-properties': printer }

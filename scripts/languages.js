@@ -1,29 +1,17 @@
-const fs = require('fs')
+import { writeFileSync } from 'node:fs'
+import { 'Java Properties' as javaProperties } from 'linguist-languages'
 
-const LinguistLanguages = require('linguist-languages')
-
-/**
- *
- * @param {string} name
- * @returns
- */
-const getSupportLanguages = name => {
-  const language = LinguistLanguages[name]
-  return [
-    {
-      ...language,
-      name,
-      since: '0.1.0',
-      parsers: ['dot-properties'],
-      vscodeLanguageIds: [language.aceMode]
-    }
-  ]
-}
-
-fs.writeFileSync(
+writeFileSync(
   'languages.js',
-  `exports.languages = ${JSON.stringify(
-    getSupportLanguages('Java Properties'),
+  `export const languages = ${JSON.stringify(
+    [
+      {
+        ...javaProperties,
+        since: '0.1.0',
+        parsers: ['dot-properties'],
+        vscodeLanguageIds: [javaProperties.aceMode]
+      }
+    ],
     null,
     2
   )}

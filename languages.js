@@ -1,4 +1,4 @@
-exports.languages = [
+export const languages = [
   {
     "name": "Java Properties",
     "type": "data",

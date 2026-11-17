@@ -1,4 +1,4 @@
-const prettier = require('prettier')
+import * as prettier from 'prettier'
 
 const format = (src, opt) =>
   prettier.format(
