@@ -14,14 +14,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [18, 20, latest]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v7
       - run: npm ci
       - run: npm test
 
@@ -33,19 +28,14 @@ jobs:
         prettier-version: [2.3.0, latest, next]
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with: { node-version: 18 }
+      - uses: actions/checkout@v7
       - run: npm ci
       - run: npm install prettier@${{ matrix.prettier-version }}
-      - run: NODE_OPTIONS=--experimental-vm-modules npm test
 
   style:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with: { node-version: 18 }
+      - uses: actions/checkout@v7
       - run: npm ci
       - run: npx prettier --check .
