@@ -19,6 +19,10 @@
   },
   "main": "index.js",
   "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
   "files": [
     "index.js",
     "languages.js",
@@ -27,7 +31,7 @@
   "scripts": {
     "prepare": "node scripts/languages",
     "prettier": "prettier --write .",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage"
+    "test": "vitest run --coverage"
   },
   "prettier": {
     "arrowParens": "avoid",
@@ -39,9 +43,10 @@
     "dot-properties": "^1.1.2"
   },
   "devDependencies": {
-    "jest": "^30.5.2",
+    "@vitest/coverage-v8": "^5.1.0",
     "linguist-languages": "^9.5.0",
-    "prettier": "^3.10.1"
+    "prettier": "^3.10.1",
+    "vitest": "^5.1.0"
   },
   "peerDependencies": {
     "prettier": ">= 2.3.0"

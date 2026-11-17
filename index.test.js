@@ -1,10 +1,12 @@
 import * as prettier from 'prettier'
+import { expect, test } from 'vitest'
 
 const format = (src, opt) =>
-  prettier.format(
-    src,
-    Object.assign({ parser: 'dot-properties', plugins: ['.'] }, opt)
-  )
+  prettier.format(src, {
+    parser: 'dot-properties',
+    plugins: ['prettier-plugin-properties'],
+    ...opt
+  })
 
 const cases = [
   ['foo', 'foo = \n'],
