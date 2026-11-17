@@ -7,9 +7,10 @@ const format = (src, opt) =>
   )
 
 const cases = [
-  ['foo', 'foo =\n'],
+  ['foo', 'foo = \n'],
   ['foo bar', 'foo = bar\n'],
   ['foo=bar', 'foo = bar\n'],
+  ['foo=bar  ', 'foo = bar  \n'],
   ['foo=foo\r\nbar=bar\r\n', 'foo = foo\nbar = bar\n'],
   ['foo\\ bar baz', 'foo\\ bar = baz\n'],
   ['😀=💚', '😀 = 💚\n'],
@@ -30,7 +31,7 @@ const cases = [
   ],
   [
     'foo.bar=pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo = bar ',
-    'foo.bar=\\\n  pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo=bar\n',
+    'foo.bar=\\\n  pizza hotdogs\n# prettier-ignore\nfoo.bar.sound=Lorem ipsum dolor\nfoo=bar \n',
     { keySeparator: '=', printWidth: 19 }
   ],
   [

@@ -1,5 +1,5 @@
 const { parseLines, stringify } = require('dot-properties')
-const { hardline } = require('prettier').doc.builders
+const { literalline } = require('prettier').doc.builders
 
 const { languages } = require('./languages')
 
@@ -28,7 +28,7 @@ const printer = {
         // # prettier-ignore comment above them. So we need to return them
         // with a hardline here.
         if (this.hasPrettierIgnore(astPath)) {
-          return [print(astPath), hardline]
+          return [print(astPath), literalline]
         }
         return print(astPath)
       })
@@ -40,7 +40,7 @@ const printer = {
       latin1: options.escapeNonLatin1,
       lineWidth: options.printWidth
     }
-    return [stringify([node], opt), hardline]
+    return [stringify([node], opt), literalline]
   },
   hasPrettierIgnore(path) {
     const node = path.getValue()
